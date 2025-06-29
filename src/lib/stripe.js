@@ -1,18 +1,18 @@
-import {loadStripe} from '@stripe/stripe-js'
+import { loadStripe } from '@stripe/stripe-js'
 
 // Live Stripe publishable key
 const STRIPE_PUBLISHABLE_KEY = process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY || 'pk_live_51ResbBGIxGZYIT6Q3GlewIFtE5A1DzV7iL3fw3gZsaIpKtQ3knxDsTiqo3qFWxD3mfNYOfEn2LVe4hm6CNiZ3Ojl00DtNDNw6e'
 
 export const stripePromise = loadStripe(STRIPE_PUBLISHABLE_KEY)
 
-// Product configurations with Stripe Price IDs
-// TODO: Replace these placeholder Price IDs with your actual Stripe Price IDs
+// Product configurations with Stripe Price IDs and Payment Links
 export const PRODUCTS = {
   'ai-job-search': {
     id: 'ai-job-search',
     name: 'AI-Powered Job Search Blueprint',
     price: 9.99,
-    stripePriceId: 'price_REPLACE_WITH_YOUR_ACTUAL_PRICE_ID_1', // Replace with actual Stripe Price ID
+    stripePriceId: 'price_1RfEk9GIxGZYIT6Qb7MRCwI8',
+    paymentLink: 'https://buy.stripe.com/14A4gzaj20g2f2bbEE',
     description: 'Master the AI-driven job market and land your dream job faster',
     downloadFiles: [
       'ai-job-search-blueprint.pdf',
@@ -26,7 +26,8 @@ export const PRODUCTS = {
     id: 'ai-entrepreneur',
     name: 'The AI Entrepreneur Blueprint',
     price: 9.99,
-    stripePriceId: 'price_REPLACE_WITH_YOUR_ACTUAL_PRICE_ID_2', // Replace with actual Stripe Price ID
+    stripePriceId: 'price_1RfEk9GIxGZYIT6QMJiAOHBI',
+    paymentLink: 'https://buy.stripe.com/eVq8wP1Mw2oa1blcII',
     description: 'Launch your lean digital business with AI-powered strategies',
     downloadFiles: [
       'ai-entrepreneur-blueprint.pdf',
@@ -40,7 +41,8 @@ export const PRODUCTS = {
     id: 'financial-freedom',
     name: 'Financial Freedom Blueprint',
     price: 9.99,
-    stripePriceId: 'price_REPLACE_WITH_YOUR_ACTUAL_PRICE_ID_3', // Replace with actual Stripe Price ID
+    stripePriceId: 'price_1RfEk9GIxGZYIT6QjAEFZqBy',
+    paymentLink: 'https://buy.stripe.com/5kQfZh0Is3se1bleQQ',
     description: 'Master your money and build lasting wealth through strategic planning',
     downloadFiles: [
       'financial-freedom-blueprint.pdf',
@@ -54,10 +56,10 @@ export const PRODUCTS = {
     id: 'complete-collection',
     name: 'Complete Life Mastery Collection',
     price: 26.97,
-    stripePriceId: 'price_REPLACE_WITH_YOUR_ACTUAL_PRICE_ID_4', // Replace with actual Stripe Price ID
+    stripePriceId: 'price_1RfEk9GIxGZYIT6QCUsdtmSE',
+    paymentLink: 'https://buy.stripe.com/fZu3cv8aUe6S8DN244',
     description: 'All 3 blueprints + 12 bonus resources - Transform every area of your life',
     downloadFiles: [
-      // All files from individual products
       'ai-job-search-blueprint.pdf',
       'ats-resume-template.docx',
       'cover-letter-template.docx',

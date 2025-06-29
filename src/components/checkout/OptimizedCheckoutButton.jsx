@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { motion } from 'framer-motion'
+import React, { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useAuth } from '../../hooks/useAuth.jsx'
 import { createCheckoutSession, PRODUCTS, validateStripeConfiguration } from '../../lib/stripe'
 import { stripePromise } from '../../lib/stripe'
@@ -7,27 +7,53 @@ import AuthModal from '../auth/AuthModal'
 import SafeIcon from '../../common/SafeIcon'
 import * as FiIcons from 'react-icons/fi'
 
-const { FiShoppingCart, FiLock, FiCreditCard, FiUser, FiAlertCircle } = FiIcons
+const { FiShoppingCart, FiLock, FiCreditCard, FiUser, FiAlertCircle, FiCheck, FiGift, FiZap, FiShield } = FiIcons
 
-const CheckoutButton = ({
+const OptimizedCheckoutButton = ({
   productId,
   className = '',
   children,
   couponData = null,
   size = 'default',
-  showAuthFirst = true
+  showAuthFirst = true,
+  variant = 'primary' // primary, secondary, urgent
 }) => {
   const [loading, setLoading] = useState(false)
   const [showAuthModal, setShowAuthModal] = useState(false)
   const [authMode, setAuthMode] = useState('signin')
   const [error, setError] = useState('')
+  const [urgencyTimer, setUrgencyTimer] = useState(null)
+  const [showTrustSignals, setShowTrustSignals] = useState(false)
   const { user } = useAuth()
 
   const product = PRODUCTS[productId]
 
+  // Urgency timer for limited-time offers
+  useEffect(() => {
+    if (variant === 'urgent') {
+      const endTime = new Date().getTime() + (24 * 60 * 60 * 1000) // 24 hours
+      const timer = setInterval(() => {
+        const now = new Date().getTime()
+        const distance = endTime - now
+        
+        if (distance > 0) {
+          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000)
+          setUrgencyTimer(`${hours}h ${minutes}m ${seconds}s`)
+        } else {
+          setUrgencyTimer('Expired')
+          clearInterval(timer)
+        }
+      }, 1000)
+
+      return () => clearInterval(timer)
+    }
+  }, [variant])
+
   const handleCheckout = async () => {
     setError('')
-
+    
     // If user is not logged in, show auth modal first
     if (!user && showAuthFirst) {
       setAuthMode('signin')
@@ -50,7 +76,7 @@ const CheckoutButton = ({
     }
 
     setLoading(true)
-
+    
     try {
       // Create checkout session
       const sessionId = await createCheckoutSession(
@@ -97,15 +123,21 @@ const CheckoutButton = ({
   const sizeClasses = {
     small: 'px-4 py-2 text-sm',
     default: 'px-6 sm:px-8 py-3 text-base',
-    large: 'px-8 sm:px-12 py-4 text-lg'
+    large: 'px-8 sm:px-12 py-4 text-lg xl:text-xl'
+  }
+
+  const variantClasses = {
+    primary: 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl',
+    secondary: 'bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-50',
+    urgent: 'bg-gradient-to-r from-red-500 to-orange-600 hover:from-red-600 hover:to-orange-700 text-white shadow-lg hover:shadow-xl animate-pulse'
   }
 
   return (
     <>
-      <div className="w-full">
+      <div className="w-full space-y-3">
         {error && (
           <motion.div
-            className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg flex items-start space-x-2"
+            className="p-3 bg-red-50 border border-red-200 rounded-lg flex items-start space-x-2"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
           >
@@ -124,17 +156,34 @@ const CheckoutButton = ({
           </motion.div>
         )}
 
+        {/* Urgency Timer */}
+        {variant === 'urgent' && urgencyTimer && (
+          <motion.div
+            className="bg-gradient-to-r from-red-100 to-orange-100 border border-red-300 rounded-lg p-3 text-center"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+          >
+            <div className="flex items-center justify-center space-x-2">
+              <SafeIcon icon={FiZap} className="text-red-600" />
+              <span className="text-red-800 font-semibold">Limited Time: {urgencyTimer}</span>
+            </div>
+          </motion.div>
+        )}
+
+        {/* Main Checkout Button */}
         <motion.button
           onClick={handleCheckout}
           disabled={loading}
           className={`
-            relative overflow-hidden font-semibold transition-all duration-300 
-            transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed 
-            disabled:transform-none flex items-center justify-center space-x-2 
-            rounded-lg w-full ${sizeClasses[size]} ${className}
+            relative overflow-hidden font-semibold transition-all duration-300 transform hover:scale-105 
+            disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none 
+            flex items-center justify-center space-x-2 rounded-lg w-full
+            ${sizeClasses[size]} ${variantClasses[variant]} ${className}
           `}
           whileHover={{ scale: loading ? 1 : 1.02 }}
           whileTap={{ scale: loading ? 1 : 0.98 }}
+          onMouseEnter={() => setShowTrustSignals(true)}
+          onMouseLeave={() => setShowTrustSignals(false)}
         >
           {loading ? (
             <>
@@ -161,7 +210,47 @@ const CheckoutButton = ({
               <SafeIcon icon={FiLock} className="text-sm opacity-75 flex-shrink-0" />
             </>
           )}
+
+          {/* Animated background effect */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
         </motion.button>
+
+        {/* Trust Signals */}
+        <AnimatePresence>
+          {showTrustSignals && (
+            <motion.div
+              className="bg-gray-50 border border-gray-200 rounded-lg p-3"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="grid grid-cols-2 gap-2 text-xs text-gray-600">
+                <div className="flex items-center space-x-1">
+                  <SafeIcon icon={FiShield} className="text-green-500" />
+                  <span>SSL Secured</span>
+                </div>
+                <div className="flex items-center space-x-1">
+                  <SafeIcon icon={FiZap} className="text-blue-500" />
+                  <span>Instant Access</span>
+                </div>
+                <div className="flex items-center space-x-1">
+                  <SafeIcon icon={FiCheck} className="text-green-500" />
+                  <span>Stripe Powered</span>
+                </div>
+                <div className="flex items-center space-x-1">
+                  <SafeIcon icon={FiGift} className="text-purple-500" />
+                  <span>Bonus Included</span>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Social Proof */}
+        <div className="text-center text-xs text-gray-500">
+          <span>Join 10,000+ satisfied customers</span>
+        </div>
       </div>
 
       {/* Auth Modal */}
@@ -180,4 +269,4 @@ const CheckoutButton = ({
   )
 }
 
-export default CheckoutButton
+export default OptimizedCheckoutButton
