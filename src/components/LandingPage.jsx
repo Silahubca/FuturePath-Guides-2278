@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import Hero from './sections/Hero';
 import Introduction from './sections/Introduction';
 import ProductSeries from './sections/ProductSeries';
@@ -9,7 +8,7 @@ import Footer from './sections/Footer';
 
 const LandingPage = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#ffffff]">
       <Hero />
       <Introduction />
       <ProductSeries />

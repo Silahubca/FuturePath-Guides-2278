@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import SafeIcon from '../../common/SafeIcon';
 import * as FiIcons from 'react-icons/fi';
+import Footer from '../sections/Footer';
+import { Link } from 'react-router-dom';
 
 const { FiArrowRight, FiCheck, FiStar, FiDownload, FiTarget, FiTrendingUp, FiUsers, FiFileText, FiEdit3, FiZap, FiAward, FiBrain, FiRocket, FiDollarSign, FiLightbulb, FiShield, FiPieChart, FiHome, FiCreditCard } = FiIcons;
 
@@ -95,7 +97,6 @@ const FinancialFreedomPage = () => {
           <div className="absolute top-20 left-10 w-72 h-72 bg-green-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
           <div className="absolute bottom-20 right-10 w-72 h-72 bg-emerald-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse animation-delay-2000"></div>
         </div>
-        
         <div className="relative z-10 container mx-auto px-6 py-20">
           <motion.div 
             className="text-center max-w-5xl mx-auto"
@@ -104,14 +105,12 @@ const FinancialFreedomPage = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Unlock Your 
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-400"> Financial Freedom:</span> Master Inflation, Conquer Debt & Build Lasting Wealth
+              Unlock Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-400">Financial Freedom:</span> Master Inflation, Conquer Debt & Build Lasting Wealth
             </h1>
-            
             <p className="text-xl lg:text-2xl text-gray-200 mb-12 leading-relaxed max-w-4xl mx-auto">
               The economy is uncertain, but your financial future doesn't have to be. This blueprint provides clear, actionable strategies to take control of your money, starting today.
             </p>
-
+            
             {/* Hero Visual */}
             <motion.div 
               className="flex justify-center mb-12"
@@ -139,12 +138,17 @@ const FinancialFreedomPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
-              <button className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white px-12 py-5 rounded-lg font-bold text-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center group">
+              <a 
+                href="https://buy.stripe.com/5kQfZh0Is3se1bleQQ4wM06" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white px-12 py-5 rounded-lg font-bold text-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center group"
+              >
                 GET YOUR BLUEPRINT NOW - ONLY $9.99!
                 <SafeIcon icon={FiDownload} className="ml-3 group-hover:translate-y-1 transition-transform" />
-              </button>
+              </a>
             </motion.div>
-
+            
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
               <div className="flex items-center justify-center space-x-2 mb-4">
                 {[...Array(5)].map((_, i) => (
@@ -168,10 +172,8 @@ const FinancialFreedomPage = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-8">
-              Are Economic Uncertainties 
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-orange-600"> Keeping You Up At Night?</span>
+              Are Economic Uncertainties <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-orange-600">Keeping You Up At Night?</span>
             </h2>
-            
             <div className="bg-white rounded-2xl shadow-xl p-8 text-left">
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
                 You're not alone if you feel the widespread desire to improve your financial well-being, yet struggle with the practical steps. Perhaps you're anxious about rising inflation eroding your savings, burdened by mounting debt, or simply overwhelmed by complex financial decisions like navigating high mortgage rates or understanding new payment methods like BNPL.
@@ -195,10 +197,8 @@ const FinancialFreedomPage = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-8">
-              Your Solution: 
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-600"> The Financial Freedom Blueprint</span>
+              Your Solution: <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-600">The Financial Freedom Blueprint</span>
             </h2>
-            
             <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8">
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
                 This isn't just another finance book. "Financial Freedom Blueprint: Navigate Inflation & Build Wealth" is your comprehensive, actionable guide to mastering your money in any economic climate. We'll bridge the "financial empowerment gap," providing you with practical tools and expert-backed strategies to confidently build a secure and prosperous future.
@@ -213,7 +213,7 @@ const FinancialFreedomPage = () => {
           <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {benefits.map((benefit, index) => (
               <motion.div 
-                key={index}
+                key={index} 
                 className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -241,10 +241,15 @@ const FinancialFreedomPage = () => {
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-8">
               Ready to Take Control of Your Financial Future?
             </h2>
-            <button className="bg-white text-green-600 hover:bg-gray-100 px-12 py-5 rounded-lg font-bold text-2xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center mx-auto group">
+            <a 
+              href="https://buy.stripe.com/5kQfZh0Is3se1bleQQ4wM06" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-white text-green-600 hover:bg-gray-100 px-12 py-5 rounded-lg font-bold text-2xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center mx-auto group"
+            >
               GET YOUR BLUEPRINT NOW - ONLY $9.99!
               <SafeIcon icon={FiDownload} className="ml-3 group-hover:translate-y-1 transition-transform" />
-            </button>
+            </a>
           </motion.div>
         </div>
       </section>
@@ -260,8 +265,7 @@ const FinancialFreedomPage = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-              Exclusive Bonus Offers for 
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400"> Early Action Takers!</span>
+              Exclusive Bonus Offers for <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">Early Action Takers!</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-4xl mx-auto">
               To ensure you have every tool you need to achieve financial mastery, when you purchase "Financial Freedom Blueprint: Navigate Inflation & Build Wealth" today, you'll instantly receive these high-value, actionable resources:
@@ -271,7 +275,7 @@ const FinancialFreedomPage = () => {
           <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {bonuses.map((bonus, index) => (
               <motion.div 
-                key={index}
+                key={index} 
                 className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -344,7 +348,7 @@ const FinancialFreedomPage = () => {
           <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {testimonials.map((testimonial, index) => (
               <motion.div 
-                key={index}
+                key={index} 
                 className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -360,11 +364,7 @@ const FinancialFreedomPage = () => {
                   "{testimonial.text}"
                 </p>
                 <div className="flex items-center space-x-3">
-                  <img 
-                    src={testimonial.avatar} 
-                    alt={testimonial.author} 
-                    className="w-12 h-12 rounded-full object-cover"
-                  />
+                  <img src={testimonial.avatar} alt={testimonial.author} className="w-12 h-12 rounded-full object-cover" />
                   <div>
                     <h4 className="font-semibold text-gray-900">{testimonial.author}</h4>
                     <p className="text-sm text-gray-600">{testimonial.role}</p>
@@ -386,25 +386,28 @@ const FinancialFreedomPage = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-8">
-              Don't Let Financial Uncertainty Control Your Life. 
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400"> Take Action Now!</span>
+              Don't Let Financial Uncertainty Control Your Life. <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">Take Action Now!</span>
             </h2>
-            
-            <button className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white px-12 py-6 rounded-lg font-bold text-2xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center mx-auto group mb-8">
+            <a 
+              href="https://buy.stripe.com/5kQfZh0Is3se1bleQQ4wM06" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white px-12 py-6 rounded-lg font-bold text-2xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center mx-auto group mb-8"
+            >
               DOWNLOAD YOUR BLUEPRINT + ALL 4 FREE BONUSES!
               <SafeIcon icon={FiDownload} className="ml-3 group-hover:translate-y-1 transition-transform" />
-            </button>
-
+            </a>
             <div className="text-gray-300 space-x-6">
-              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+              <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
               <span>|</span>
-              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+              <Link to="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
               <span>|</span>
-              <a href="#" className="hover:text-white transition-colors">Contact Us</a>
+              <Link to="/contact" className="hover:text-white transition-colors">Contact Us</Link>
             </div>
           </motion.div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };

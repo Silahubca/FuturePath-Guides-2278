@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import SafeIcon from '../../common/SafeIcon';
 import * as FiIcons from 'react-icons/fi';
+import Footer from '../sections/Footer';
 
 const { FiMail, FiMessageCircle, FiPhone, FiMapPin, FiSend, FiClock, FiHelpCircle } = FiIcons;
 
@@ -74,9 +75,9 @@ const ContactPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-[#ffffff]">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 py-20">
+      <section className="bg-[#131319] py-20">
         <div className="container mx-auto px-6">
           <motion.div 
             className="text-center max-w-4xl mx-auto"
@@ -84,11 +85,11 @@ const ContactPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <SafeIcon icon={FiMessageCircle} className="text-6xl text-white mx-auto mb-8" />
-            <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+            <SafeIcon icon={FiMessageCircle} className="text-6xl text-[#ffffff] mx-auto mb-8" />
+            <h1 className="text-4xl lg:text-5xl font-bold text-[#ffffff] mb-6">
               Get in Touch
             </h1>
-            <p className="text-xl text-gray-200 leading-relaxed">
+            <p className="text-xl text-[#ffffff] leading-relaxed">
               Questions about your purchase? Need help with downloads? We're here to support your success journey.
             </p>
           </motion.div>
@@ -96,21 +97,21 @@ const ContactPage = () => {
       </section>
 
       {/* Contact Information */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-[#ffffff]">
         <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {contactInfo.map((item, index) => (
               <motion.div 
                 key={index}
-                className="text-center p-6 rounded-2xl bg-gradient-to-br from-blue-50 to-purple-50"
+                className="text-center p-6 rounded-2xl bg-[#ffffff] border border-gray-200"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <SafeIcon icon={item.icon} className="text-4xl text-blue-600 mx-auto mb-4" />
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{item.title}</h3>
-                <p className="text-xl font-bold text-blue-600 mb-2">{item.content}</p>
+                <SafeIcon icon={item.icon} className="text-4xl text-[#131319] mx-auto mb-4" />
+                <h3 className="text-lg font-semibold text-[#131319] mb-2">{item.title}</h3>
+                <p className="text-xl font-bold text-[#131319] mb-2">{item.content}</p>
                 <p className="text-sm text-gray-600">{item.description}</p>
               </motion.div>
             ))}
@@ -119,7 +120,7 @@ const ContactPage = () => {
       </section>
 
       {/* Contact Form */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-[#ffffff]">
         <div className="container mx-auto px-6">
           <div className="max-w-2xl mx-auto">
             <motion.div 
@@ -129,14 +130,14 @@ const ContactPage = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Send Us a Message</h2>
+              <h2 className="text-3xl font-bold text-[#131319] mb-4">Send Us a Message</h2>
               <p className="text-gray-600">
                 Fill out the form below and we'll get back to you within 24-48 hours.
               </p>
             </motion.div>
 
             <motion.div 
-              className="bg-white rounded-2xl shadow-xl p-8"
+              className="bg-[#ffffff] rounded-2xl shadow-md p-8 border border-gray-200"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -145,7 +146,7 @@ const ContactPage = () => {
               {isSubmitted ? (
                 <div className="text-center py-8">
                   <SafeIcon icon={FiSend} className="text-5xl text-green-500 mx-auto mb-4" />
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Message Sent!</h3>
+                  <h3 className="text-2xl font-bold text-[#131319] mb-2">Message Sent!</h3>
                   <p className="text-gray-600">
                     Thank you for contacting us. We'll respond within 24-48 hours.
                   </p>
@@ -163,7 +164,7 @@ const ContactPage = () => {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#131319] focus:border-transparent"
                         placeholder="Your full name"
                       />
                     </div>
@@ -177,7 +178,7 @@ const ContactPage = () => {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#131319] focus:border-transparent"
                         placeholder="your@email.com"
                       />
                     </div>
@@ -192,7 +193,7 @@ const ContactPage = () => {
                       value={formData.subject}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#131319] focus:border-transparent"
                     >
                       <option value="">Select a subject</option>
                       <option value="download-issue">Download Issue</option>
@@ -213,14 +214,14 @@ const ContactPage = () => {
                       onChange={handleChange}
                       required
                       rows={6}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#131319] focus:border-transparent"
                       placeholder="Please describe your question or issue in detail..."
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-4 px-6 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center group"
+                    className="w-full bg-[#131319] hover:bg-gray-800 text-white py-4 px-6 rounded-lg font-semibold text-lg transition-all duration-300 flex items-center justify-center group"
                   >
                     Send Message
                     <SafeIcon icon={FiSend} className="ml-2 group-hover:translate-x-1 transition-transform" />
@@ -233,7 +234,7 @@ const ContactPage = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-[#ffffff]">
         <div className="container mx-auto px-6">
           <motion.div 
             className="text-center mb-12"
@@ -242,7 +243,7 @@ const ContactPage = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+            <h2 className="text-3xl font-bold text-[#131319] mb-4">Frequently Asked Questions</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Find quick answers to common questions about our digital products and services.
             </p>
@@ -252,19 +253,21 @@ const ContactPage = () => {
             {faqItems.map((item, index) => (
               <motion.div 
                 key={index}
-                className="bg-gray-50 rounded-2xl p-6"
+                className="bg-[#ffffff] rounded-2xl p-6 border border-gray-200"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">{item.question}</h3>
+                <h3 className="text-lg font-semibold text-[#131319] mb-3">{item.question}</h3>
                 <p className="text-gray-700 leading-relaxed">{item.answer}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
+      
+      <Footer />
     </div>
   );
 };

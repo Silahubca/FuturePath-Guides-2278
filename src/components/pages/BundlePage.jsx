@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import SafeIcon from '../../common/SafeIcon';
 import * as FiIcons from 'react-icons/fi';
+import Footer from '../sections/Footer';
+import { Link } from 'react-router-dom';
 
 const { FiArrowRight, FiCheck, FiStar, FiDownload, FiTarget, FiTrendingUp, FiUsers, FiFileText, FiEdit3, FiZap, FiAward, FiBrain, FiRocket, FiDollarSign, FiLightbulb, FiShield, FiPieChart, FiHome, FiCreditCard, FiGift, FiPackage } = FiIcons;
 
@@ -105,7 +107,6 @@ const BundlePage = () => {
           <div className="absolute top-40 right-10 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse animation-delay-2000"></div>
           <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse animation-delay-4000"></div>
         </div>
-        
         <div className="relative z-10 container mx-auto px-6 py-20">
           <motion.div 
             className="text-center max-w-6xl mx-auto"
@@ -122,20 +123,17 @@ const BundlePage = () => {
               <SafeIcon icon={FiGift} className="mr-2" />
               LIMITED TIME BUNDLE OFFER - SAVE $3.00!
             </motion.div>
-
-            <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              The Complete 
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400"> Life Mastery</span> Collection
-            </h1>
             
+            <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+              The Complete <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">Life Mastery</span> Collection
+            </h1>
             <p className="text-xl lg:text-2xl text-gray-200 mb-8 leading-relaxed max-w-4xl mx-auto">
               Transform Every Area of Your Life: Career Success + Business Freedom + Financial Security
             </p>
-
             <p className="text-lg text-gray-300 mb-12 max-w-3xl mx-auto">
               Why choose just one path when you can master them all? Get our complete trilogy of success blueprints and unlock unlimited possibilities for your future.
             </p>
-
+            
             {/* Pricing Display */}
             <motion.div 
               className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 mb-12 max-w-2xl mx-auto"
@@ -154,19 +152,24 @@ const BundlePage = () => {
                 <p className="text-gray-300 mt-3">All 3 Blueprints + 12 Bonus Resources</p>
               </div>
             </motion.div>
-
+            
             <motion.div 
               className="flex flex-col sm:flex-row gap-6 justify-center mb-12"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <button className="bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 text-white px-12 py-5 rounded-lg font-bold text-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center group">
+              <a 
+                href="https://buy.stripe.com/fZu3cv8aUe6S8DN2444wM03" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 text-white px-12 py-5 rounded-lg font-bold text-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center group"
+              >
                 GET THE COMPLETE COLLECTION NOW!
                 <SafeIcon icon={FiDownload} className="ml-3 group-hover:translate-y-1 transition-transform" />
-              </button>
+              </a>
             </motion.div>
-
+            
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
               <div className="flex items-center justify-center space-x-2 mb-4">
                 {[...Array(5)].map((_, i) => (
@@ -191,8 +194,7 @@ const BundlePage = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              What's Included in Your 
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600"> Complete Collection</span>
+              What's Included in Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">Complete Collection</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Three comprehensive blueprints that work together to create your ultimate success strategy
@@ -202,7 +204,7 @@ const BundlePage = () => {
           <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-16">
             {bundleProducts.map((product, index) => (
               <motion.div 
-                key={index}
+                key={index} 
                 className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -217,7 +219,6 @@ const BundlePage = () => {
                     <span className="text-lg font-bold">Value: {product.originalPrice}</span>
                   </div>
                 </div>
-                
                 <div className="p-6">
                   <h4 className="font-semibold text-gray-900 mb-3">Key Resources Included:</h4>
                   <div className="space-y-2">
@@ -244,11 +245,10 @@ const BundlePage = () => {
             <h3 className="text-3xl font-bold text-center text-gray-900 mb-12">
               Why Choose the Complete Collection?
             </h3>
-            
             <div className="grid md:grid-cols-2 gap-8">
               {bundleBenefits.map((benefit, index) => (
                 <motion.div 
-                  key={index}
+                  key={index} 
                   className="flex items-start space-x-4"
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -278,10 +278,8 @@ const BundlePage = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-8">
-              Stop Playing it Safe with 
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-orange-600"> Half-Measures</span>
+              Stop Playing it Safe with <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-orange-600">Half-Measures</span>
             </h2>
-            
             <div className="bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl p-8 text-left">
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
                 Here's the truth: Most people fail because they try to fix just one area of their life at a time. They focus only on their career while their finances crumble. Or they start a business but lack the job security to take risks. Or they save money but never invest in their growth.
@@ -309,10 +307,15 @@ const BundlePage = () => {
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-8">
               Ready to Master Every Area of Your Life?
             </h2>
-            <button className="bg-white text-purple-600 hover:bg-gray-100 px-12 py-5 rounded-lg font-bold text-2xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center mx-auto group">
+            <a 
+              href="https://buy.stripe.com/fZu3cv8aUe6S8DN2444wM03" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-white text-purple-600 hover:bg-gray-100 px-12 py-5 rounded-lg font-bold text-2xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center mx-auto group"
+            >
               GET THE COMPLETE COLLECTION - SAVE $3.00!
               <SafeIcon icon={FiDownload} className="ml-3 group-hover:translate-y-1 transition-transform" />
-            </button>
+            </a>
             <p className="text-white/80 mt-4">3 Blueprints + 12 Bonus Resources • Instant Download</p>
           </motion.div>
         </div>
@@ -339,7 +342,7 @@ const BundlePage = () => {
           <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {testimonials.map((testimonial, index) => (
               <motion.div 
-                key={index}
+                key={index} 
                 className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -355,11 +358,7 @@ const BundlePage = () => {
                   "{testimonial.text}"
                 </p>
                 <div className="flex items-center space-x-3">
-                  <img 
-                    src={testimonial.avatar} 
-                    alt={testimonial.author} 
-                    className="w-12 h-12 rounded-full object-cover"
-                  />
+                  <img src={testimonial.avatar} alt={testimonial.author} className="w-12 h-12 rounded-full object-cover" />
                   <div>
                     <h4 className="font-semibold text-gray-900">{testimonial.author}</h4>
                     <p className="text-sm text-gray-600">{testimonial.role}</p>
@@ -383,11 +382,10 @@ const BundlePage = () => {
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-8">
               Your Complete Life Transformation Starts Now
             </h2>
-            
             <p className="text-xl text-gray-200 mb-12 max-w-3xl mx-auto">
               Don't spend years trying to figure it out alone. Get the complete roadmap to career success, business freedom, and financial security—all for less than the cost of a nice dinner out.
             </p>
-
+            
             <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 mb-12 max-w-md mx-auto">
               <div className="text-center">
                 <div className="flex items-center justify-center space-x-4 mb-4">
@@ -400,21 +398,27 @@ const BundlePage = () => {
               </div>
             </div>
             
-            <button className="bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 text-white px-12 py-6 rounded-lg font-bold text-2xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center mx-auto group mb-8">
+            <a 
+              href="https://buy.stripe.com/fZu3cv8aUe6S8DN2444wM03" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 text-white px-12 py-6 rounded-lg font-bold text-2xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center mx-auto group mb-8"
+            >
               GET THE COMPLETE COLLECTION NOW!
               <SafeIcon icon={FiPackage} className="ml-3 group-hover:translate-y-1 transition-transform" />
-            </button>
-
+            </a>
+            
             <div className="text-gray-300 space-x-6">
-              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+              <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
               <span>|</span>
-              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+              <Link to="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
               <span>|</span>
-              <a href="#" className="hover:text-white transition-colors">Contact Us</a>
+              <Link to="/contact" className="hover:text-white transition-colors">Contact Us</Link>
             </div>
           </motion.div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };

@@ -1,7 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import SafeIcon from '../../common/SafeIcon';
 import * as FiIcons from 'react-icons/fi';
+import Footer from '../sections/Footer';
 
 const { FiArrowRight, FiCheck, FiStar, FiDownload, FiTarget, FiTrendingUp, FiUsers, FiFileText, FiEdit3, FiZap, FiAward, FiBrain, FiRocket, FiDollarSign, FiLightbulb } = FiIcons;
 
@@ -86,7 +88,6 @@ const AIEntrepreneurPage = () => {
           <div className="absolute top-20 left-10 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
           <div className="absolute bottom-20 right-10 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse animation-delay-2000"></div>
         </div>
-        
         <div className="relative z-10 container mx-auto px-6 py-20">
           <motion.div 
             className="text-center max-w-5xl mx-auto"
@@ -95,14 +96,12 @@ const AIEntrepreneurPage = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Launch Your Profitable 
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400"> AI-Accelerated Business</span> (Even with Minimal Capital!)
+              Launch Your Profitable <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">AI-Accelerated Business</span> (Even with Minimal Capital!)
             </h1>
-            
             <p className="text-xl lg:text-2xl text-gray-200 mb-12 leading-relaxed max-w-4xl mx-auto">
               Stop dreaming, start building. This blueprint reveals how to leverage Artificial Intelligence to identify high-growth ideas, validate your market, and launch a lean digital venture that thrives.
             </p>
-
+            
             {/* Hero Visual */}
             <motion.div 
               className="flex justify-center mb-12"
@@ -130,12 +129,17 @@ const AIEntrepreneurPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
-              <button className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-12 py-5 rounded-lg font-bold text-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center group">
+              <a 
+                href="https://buy.stripe.com/eVq8wP1Mw2oa1blcII4wM05" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-12 py-5 rounded-lg font-bold text-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center group"
+              >
                 GET YOUR BLUEPRINT NOW - ONLY $9.99!
                 <SafeIcon icon={FiDownload} className="ml-3 group-hover:translate-y-1 transition-transform" />
-              </button>
+              </a>
             </motion.div>
-
+            
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
               <div className="flex items-center justify-center space-x-2 mb-4">
                 {[...Array(5)].map((_, i) => (
@@ -159,10 +163,8 @@ const AIEntrepreneurPage = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-8">
-              Are You Ready to Be Your Own Boss, But 
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600"> Don't Know Where to Start?</span>
+              Are You Ready to Be Your Own Boss, But <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">Don't Know Where to Start?</span>
             </h2>
-            
             <div className="bg-white rounded-2xl shadow-xl p-8 text-left">
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
                 The entrepreneurial spirit is strong, but the path can feel daunting. Are you overwhelmed by countless business ideas, unsure which one will actually succeed? Do you fear the high startup costs that traditionally come with launching a venture? Or perhaps you're uncertain about how to find a genuine market need that your business can truly serve?
@@ -186,10 +188,8 @@ const AIEntrepreneurPage = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-8">
-              The Revolution is Here: 
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600"> AI is Your Ultimate Business Partner</span>
+              The Revolution is Here: <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">AI is Your Ultimate Business Partner</span>
             </h2>
-            
             <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8">
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
                 The digital landscape has changed. Artificial Intelligence is no longer just for tech giants; it's a powerful force democratizing entrepreneurship, making it easier and more affordable than ever to launch a successful business. "The AI Entrepreneur: Blueprint for a Lean Digital Business" is your definitive guide to harnessing this revolution.
@@ -204,7 +204,7 @@ const AIEntrepreneurPage = () => {
           <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {benefits.map((benefit, index) => (
               <motion.div 
-                key={index}
+                key={index} 
                 className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -232,10 +232,15 @@ const AIEntrepreneurPage = () => {
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-8">
               Your Time is Now. Your Business Awaits.
             </h2>
-            <button className="bg-white text-purple-600 hover:bg-gray-100 px-12 py-5 rounded-lg font-bold text-2xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center mx-auto group">
+            <a 
+              href="https://buy.stripe.com/eVq8wP1Mw2oa1blcII4wM05" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-white text-purple-600 hover:bg-gray-100 px-12 py-5 rounded-lg font-bold text-2xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center mx-auto group"
+            >
               GET YOUR BLUEPRINT NOW - ONLY $9.99!
               <SafeIcon icon={FiDownload} className="ml-3 group-hover:translate-y-1 transition-transform" />
-            </button>
+            </a>
           </motion.div>
         </div>
       </section>
@@ -251,8 +256,7 @@ const AIEntrepreneurPage = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-              Exclusive Bonus Offers for 
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400"> Early Action Takers!</span>
+              Exclusive Bonus Offers for <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">Early Action Takers!</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-4xl mx-auto">
               To ensure your immediate success, when you purchase "The AI Entrepreneur: Blueprint for a Lean Digital Business" today, you'll instantly receive these high-value, actionable resources:
@@ -262,7 +266,7 @@ const AIEntrepreneurPage = () => {
           <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {bonuses.map((bonus, index) => (
               <motion.div 
-                key={index}
+                key={index} 
                 className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -332,7 +336,7 @@ const AIEntrepreneurPage = () => {
           <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {testimonials.map((testimonial, index) => (
               <motion.div 
-                key={index}
+                key={index} 
                 className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -348,11 +352,7 @@ const AIEntrepreneurPage = () => {
                   "{testimonial.text}"
                 </p>
                 <div className="flex items-center space-x-3">
-                  <img 
-                    src={testimonial.avatar} 
-                    alt={testimonial.author} 
-                    className="w-12 h-12 rounded-full object-cover"
-                  />
+                  <img src={testimonial.avatar} alt={testimonial.author} className="w-12 h-12 rounded-full object-cover" />
                   <div>
                     <h4 className="font-semibold text-gray-900">{testimonial.author}</h4>
                     <p className="text-sm text-gray-600">{testimonial.role}</p>
@@ -374,25 +374,28 @@ const AIEntrepreneurPage = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-8">
-              Don't Let Fear or Uncertainty Hold You Back. 
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400"> The Future of Business is Here.</span>
+              Don't Let Fear or Uncertainty Hold You Back. <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">The Future of Business is Here.</span>
             </h2>
-            
-            <button className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-12 py-6 rounded-lg font-bold text-2xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center mx-auto group mb-8">
+            <a 
+              href="https://buy.stripe.com/eVq8wP1Mw2oa1blcII4wM05" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-12 py-6 rounded-lg font-bold text-2xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center mx-auto group mb-8"
+            >
               DOWNLOAD YOUR BLUEPRINT + ALL 4 FREE BONUSES!
               <SafeIcon icon={FiDownload} className="ml-3 group-hover:translate-y-1 transition-transform" />
-            </button>
-
+            </a>
             <div className="text-gray-300 space-x-6">
-              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+              <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
               <span>|</span>
-              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+              <Link to="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
               <span>|</span>
-              <a href="#" className="hover:text-white transition-colors">Contact Us</a>
+              <Link to="/contact" className="hover:text-white transition-colors">Contact Us</Link>
             </div>
           </motion.div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };

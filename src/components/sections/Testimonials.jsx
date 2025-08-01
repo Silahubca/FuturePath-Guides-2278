@@ -38,7 +38,7 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-[#ffffff]">
       <div className="container mx-auto px-6">
         <motion.div 
           className="text-center mb-16"
@@ -47,7 +47,7 @@ const Testimonials = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl lg:text-5xl font-bold text-[#131319] mb-6">
             What Our Readers Are Saying
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -58,8 +58,8 @@ const Testimonials = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <motion.div 
-              key={testimonial.id}
-              className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+              key={testimonial.id} 
+              className="bg-[#ffffff] rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -81,7 +81,7 @@ const Testimonials = () => {
               <div className="flex items-center space-x-3">
                 <img 
                   src={testimonial.avatar} 
-                  alt={testimonial.author}
+                  alt={testimonial.author} 
                   className="w-12 h-12 rounded-full object-cover"
                 />
                 <div>

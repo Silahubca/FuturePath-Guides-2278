@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import SafeIcon from '../../common/SafeIcon';
 import * as FiIcons from 'react-icons/fi';
+import Footer from '../sections/Footer';
 
 const { FiFileText, FiShield, FiAlertTriangle } = FiIcons;
 
@@ -58,9 +59,9 @@ const TermsPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-[#ffffff]">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 py-20">
+      <section className="bg-[#131319] py-20">
         <div className="container mx-auto px-6">
           <motion.div 
             className="text-center max-w-4xl mx-auto"
@@ -68,11 +69,11 @@ const TermsPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <SafeIcon icon={FiFileText} className="text-6xl text-white mx-auto mb-8" />
-            <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+            <SafeIcon icon={FiFileText} className="text-6xl text-[#ffffff] mx-auto mb-8" />
+            <h1 className="text-4xl lg:text-5xl font-bold text-[#ffffff] mb-6">
               Terms of Service
             </h1>
-            <p className="text-xl text-gray-200 leading-relaxed">
+            <p className="text-xl text-[#ffffff] leading-relaxed">
               Please read these terms carefully before purchasing or using our digital products.
             </p>
             <div className="bg-yellow-500/20 border border-yellow-400 rounded-2xl p-6 mt-8">
@@ -89,7 +90,7 @@ const TermsPage = () => {
       </section>
 
       {/* Last Updated */}
-      <section className="py-8 bg-white border-b">
+      <section className="py-8 bg-[#ffffff] border-b border-gray-200">
         <div className="container mx-auto px-6">
           <div className="text-center">
             <p className="text-gray-600">
@@ -104,23 +105,23 @@ const TermsPage = () => {
       </section>
 
       {/* Terms Content */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-[#ffffff]">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <div className="space-y-12">
+            <div className="space-y-8">
               {sections.map((section, index) => (
                 <motion.div 
                   key={index}
-                  className="bg-gray-50 rounded-2xl p-8"
+                  className="bg-[#ffffff] rounded-2xl p-8 border border-gray-200"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  transition={{ duration: 0.6, delay: index * 0.05 }}
                   viewport={{ once: true }}
                 >
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                  <h2 className="text-2xl font-bold text-[#131319] mb-4">
                     {index + 1}. {section.title}
                   </h2>
-                  <p className="text-gray-700 leading-relaxed text-lg">
+                  <p className="text-gray-700 leading-relaxed text-base md:text-lg">
                     {section.content}
                   </p>
                 </motion.div>
@@ -129,7 +130,7 @@ const TermsPage = () => {
 
             {/* Key Policies Highlight */}
             <motion.div 
-              className="mt-16 bg-red-50 border-2 border-red-200 rounded-2xl p-8"
+              className="mt-16 bg-[#ffffff] border-2 border-red-200 rounded-2xl p-8"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -137,15 +138,15 @@ const TermsPage = () => {
             >
               <div className="text-center">
                 <SafeIcon icon={FiShield} className="text-4xl text-red-600 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-red-900 mb-4">Key Policy Reminders</h3>
+                <h3 className="text-2xl font-bold text-[#131319] mb-4">Key Policy Reminders</h3>
                 <div className="grid md:grid-cols-2 gap-6 text-left">
-                  <div className="bg-white rounded-lg p-4">
+                  <div className="bg-[#ffffff] rounded-lg p-4 shadow-sm border border-gray-200">
                     <h4 className="font-semibold text-red-800 mb-2">🚫 NO REFUNDS</h4>
                     <p className="text-red-700 text-sm">
                       All digital product sales are final due to immediate access upon purchase.
                     </p>
                   </div>
-                  <div className="bg-white rounded-lg p-4">
+                  <div className="bg-[#ffffff] rounded-lg p-4 shadow-sm border border-gray-200">
                     <h4 className="font-semibold text-red-800 mb-2">🔒 NON-SHAREABLE</h4>
                     <p className="text-red-700 text-sm">
                       Individual license only. Sharing or distributing content is prohibited.
@@ -157,6 +158,8 @@ const TermsPage = () => {
           </div>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 };

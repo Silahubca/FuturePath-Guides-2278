@@ -1,20 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import SEOHead from '../seo/SEOHead';
-import ReviewSection from '../reviews/ReviewSection';
-import WishlistButton from '../wishlist/WishlistButton';
-import CouponInput from '../coupons/CouponInput';
-import CheckoutButton from '../checkout/CheckoutButton';
+import { Link } from 'react-router-dom';
 import SafeIcon from '../../common/SafeIcon';
 import * as FiIcons from 'react-icons/fi';
+import Footer from '../sections/Footer';
 
 const { FiArrowRight, FiCheck, FiStar, FiDownload, FiTarget, FiTrendingUp, FiUsers, FiFileText, FiEdit3, FiZap, FiAward } = FiIcons;
 
 const AIJobSearchPage = () => {
-  const [couponData, setCouponData] = React.useState(null);
-  const originalPrice = 9.99;
-  const finalPrice = couponData ? couponData.finalPrice : originalPrice;
-
   const benefits = [
     {
       icon: FiZap,
@@ -94,63 +87,41 @@ const AIJobSearchPage = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <SEOHead
-        title="AI-Powered Job Search Blueprint - Master the Future of Hiring | FuturePath Guides"
-        description="Transform your job search with AI-powered strategies. Learn to leverage artificial intelligence, master ATS systems, and land your dream job faster in 2025."
-        keywords="AI job search, resume optimization, ATS systems, job hunting 2025, artificial intelligence career, remote work, interview preparation"
-        url="https://futurepathguides.com/ai-job-search"
-      />
-
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
           <div className="absolute bottom-20 right-10 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse animation-delay-2000"></div>
         </div>
-
         <div className="relative z-10 container mx-auto px-6 py-20">
-          <motion.div
+          <motion.div 
             className="text-center max-w-5xl mx-auto"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="flex justify-center items-center space-x-4 mb-6">
-              <h1 className="text-4xl lg:text-6xl font-bold text-white leading-tight">
-                Land Your Dream Job Faster: Master the{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
-                  AI-Driven Hiring Landscape
-                </span>{' '}
-                of 2025
-              </h1>
-              <div className="ml-4">
-                <WishlistButton productId="ai-job-search" className="bg-white/20 hover:bg-white/30 text-white" />
-              </div>
-            </div>
-
+            <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+              Land Your Dream Job Faster: Master the <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">AI-Driven Hiring Landscape</span> of 2025
+            </h1>
             <p className="text-xl lg:text-2xl text-gray-200 mb-12 leading-relaxed max-w-4xl mx-auto">
               The job market is evolving. Are you? Discover how to leverage Artificial Intelligence to your advantage, stand out from the crowd, and secure the career you deserve.
             </p>
-
-            <CouponInput
-              onCouponApplied={setCouponData}
-              productPrice={originalPrice}
-            />
-
-            <motion.div
+            <motion.div 
               className="flex flex-col sm:flex-row gap-6 justify-center mb-12"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <CheckoutButton
-                productId="ai-job-search"
-                className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-12 py-5 rounded-lg font-bold text-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              <a 
+                href="https://buy.stripe.com/14A4gzaj20g2f2bbEE4wM04" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-12 py-5 rounded-lg font-bold text-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center group"
               >
-                GET YOUR BLUEPRINT NOW - ONLY ${finalPrice.toFixed(2)}!
-              </CheckoutButton>
+                GET YOUR BLUEPRINT NOW - ONLY $9.99!
+                <SafeIcon icon={FiDownload} className="ml-3 group-hover:translate-y-1 transition-transform" />
+              </a>
             </motion.div>
-
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
               <div className="flex items-center justify-center space-x-2 mb-4">
                 {[...Array(5)].map((_, i) => (
@@ -166,7 +137,7 @@ const AIJobSearchPage = () => {
       {/* Problem Section */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
-          <motion.div
+          <motion.div 
             className="max-w-4xl mx-auto text-center"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -174,10 +145,7 @@ const AIJobSearchPage = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-8">
-              Are You Feeling{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-pink-600">
-                Lost in the New Job Market?
-              </span>
+              Are You Feeling <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-pink-600">Lost in the New Job Market?</span>
             </h2>
             <div className="bg-white rounded-2xl shadow-xl p-8 text-left">
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -194,7 +162,7 @@ const AIJobSearchPage = () => {
       {/* Solution Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
-          <motion.div
+          <motion.div 
             className="max-w-4xl mx-auto text-center mb-16"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -202,10 +170,7 @@ const AIJobSearchPage = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-8">
-              Your Solution: The{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                AI-Powered Job Search Blueprint
-              </span>
+              Your Solution: The <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">AI-Powered Job Search Blueprint</span>
             </h2>
             <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8">
               <p className="text-lg text-gray-700 leading-relaxed">
@@ -217,8 +182,8 @@ const AIJobSearchPage = () => {
           {/* Benefits Grid */}
           <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {benefits.map((benefit, index) => (
-              <motion.div
-                key={index}
+              <motion.div 
+                key={index} 
                 className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -246,12 +211,15 @@ const AIJobSearchPage = () => {
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-8">
               Ready to Transform Your Job Search?
             </h2>
-            <CheckoutButton
-              productId="ai-job-search"
-              className="bg-white text-green-600 hover:bg-gray-100 px-12 py-5 rounded-lg font-bold text-2xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+            <a 
+              href="https://buy.stripe.com/14A4gzaj20g2f2bbEE4wM04" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-white text-green-600 hover:bg-gray-100 px-12 py-5 rounded-lg font-bold text-2xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center mx-auto group"
             >
-              GET YOUR BLUEPRINT NOW - ONLY ${finalPrice.toFixed(2)}!
-            </CheckoutButton>
+              GET YOUR BLUEPRINT NOW - ONLY $9.99!
+              <SafeIcon icon={FiDownload} className="ml-3 group-hover:translate-y-1 transition-transform" />
+            </a>
           </motion.div>
         </div>
       </section>
@@ -259,7 +227,7 @@ const AIJobSearchPage = () => {
       {/* Bonuses Section */}
       <section className="py-20 bg-gray-900 text-white">
         <div className="container mx-auto px-6">
-          <motion.div
+          <motion.div 
             className="text-center mb-16"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -267,10 +235,7 @@ const AIJobSearchPage = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-              Exclusive Bonus Offers for{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">
-                Early Action Takers!
-              </span>
+              Exclusive Bonus Offers for <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">Early Action Takers!</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-4xl mx-auto">
               To ensure your immediate success and give you an undeniable edge, when you purchase "AI-Powered Job Search: Your Blueprint for Success in 2025" today, you'll instantly receive these high-value, actionable resources:
@@ -279,8 +244,8 @@ const AIJobSearchPage = () => {
 
           <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {bonuses.map((bonus, index) => (
-              <motion.div
-                key={index}
+              <motion.div 
+                key={index} 
                 className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -298,7 +263,7 @@ const AIJobSearchPage = () => {
             ))}
           </div>
 
-          <motion.div
+          <motion.div 
             className="text-center mt-12"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -315,7 +280,7 @@ const AIJobSearchPage = () => {
       {/* Author Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
-          <motion.div
+          <motion.div 
             className="max-w-4xl mx-auto text-center"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -335,7 +300,7 @@ const AIJobSearchPage = () => {
       {/* Testimonials */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
-          <motion.div
+          <motion.div 
             className="text-center mb-16"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -349,8 +314,8 @@ const AIJobSearchPage = () => {
 
           <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={index}
+              <motion.div 
+                key={index} 
                 className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -366,11 +331,7 @@ const AIJobSearchPage = () => {
                   "{testimonial.text}"
                 </p>
                 <div className="flex items-center space-x-3">
-                  <img
-                    src={testimonial.avatar}
-                    alt={testimonial.author}
-                    className="w-12 h-12 rounded-full object-cover"
-                  />
+                  <img src={testimonial.avatar} alt={testimonial.author} className="w-12 h-12 rounded-full object-cover" />
                   <div>
                     <h4 className="font-semibold text-gray-900">{testimonial.author}</h4>
                     <p className="text-sm text-gray-600">{testimonial.role}</p>
@@ -382,9 +343,6 @@ const AIJobSearchPage = () => {
         </div>
       </section>
 
-      {/* Reviews Section */}
-      <ReviewSection productId="ai-job-search" />
-
       {/* Final CTA */}
       <section className="py-20 bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900">
         <div className="container mx-auto px-6 text-center">
@@ -395,27 +353,28 @@ const AIJobSearchPage = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-8">
-              Don't Get Left Behind.{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">
-                Secure Your Future Today!
-              </span>
+              Don't Get Left Behind. <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">Secure Your Future Today!</span>
             </h2>
-            <CheckoutButton
-              productId="ai-job-search"
-              className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-12 py-6 rounded-lg font-bold text-2xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl mb-8"
+            <a 
+              href="https://buy.stripe.com/14A4gzaj20g2f2bbEE4wM04" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-12 py-6 rounded-lg font-bold text-2xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center mx-auto group mb-8"
             >
               DOWNLOAD YOUR BLUEPRINT + ALL 4 FREE BONUSES!
-            </CheckoutButton>
+              <SafeIcon icon={FiDownload} className="ml-3 group-hover:translate-y-1 transition-transform" />
+            </a>
             <div className="text-gray-300 space-x-6">
-              <a href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</a>
+              <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
               <span>|</span>
-              <a href="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</a>
+              <Link to="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
               <span>|</span>
-              <a href="/contact" className="hover:text-white transition-colors">Contact Us</a>
+              <Link to="/contact" className="hover:text-white transition-colors">Contact Us</Link>
             </div>
           </motion.div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };
